@@ -1,0 +1,89 @@
+(base) lucyliu@LucydeMacBook-Air-641 ~ % pwd
+/Users/lucyliu
+(base) lucyliu@LucydeMacBook-Air-641 ~ % cd Documents/Github
+(base) lucyliu@LucydeMacBook-Air-641 Github % git clone https://github.com/lucyliubinggan/qtm350-quiz01
+Cloning into 'qtm350-quiz01'...
+remote: Enumerating objects: 8, done.
+remote: Counting objects: 100% (8/8), done.
+remote: Compressing objects: 100% (4/4), done.
+remote: Total 8 (delta 0), reused 8 (delta 0), pack-reused 0 (from 0)
+Receiving objects: 100% (8/8), done.
+(base) lucyliu@LucydeMacBook-Air-641 Github % cd qtm350-quiz01
+(base) lucyliu@LucydeMacBook-Air-641 qtm350-quiz01 % touch commands.txt
+(base) lucyliu@LucydeMacBook-Air-641 qtm350-quiz01 % git checkout -b feature-update
+Switched to a new branch 'feature-update'
+(base) lucyliu@LucydeMacBook-Air-641 qtm350-quiz01 % mkdir reports
+(base) lucyliu@LucydeMacBook-Air-641 qtm350-quiz01 % cd reports    
+(base) lucyliu@LucydeMacBook-Air-641 reports % touch summary.md                                      (base) lucyliu@LucydeMacBook-Air-641 reports % echo "This document provides a summary of the project updates." > summary.md
+(base) lucyliu@LucydeMacBook-Air-641 reports % git add . && git commit -m "Add reports directory"
+[feature-update 04ccbb4] Add reports directory
+ 1 file changed, 1 insertion(+)
+ create mode 100644 reports/summary.md
+(base) lucyliu@LucydeMacBook-Air-641 reports % touch reports/file{1..3}.txt
+touch: reports/file1.txt: No such file or directory
+touch: reports/file2.txt: No such file or directory
+touch: reports/file3.txt: No such file or directory
+(base) lucyliu@LucydeMacBook-Air-641 reports % touch file{1..3}.txt
+(base) lucyliu@LucydeMacBook-Air-641 reports % mv data/raw-data.csv data/input-data.csv
+mv: rename data/raw-data.csv to data/input-data.csv: No such file or directory
+(base) lucyliu@LucydeMacBook-Air-641 reports % cd ..
+(base) lucyliu@LucydeMacBook-Air-641 qtm350-quiz01 % mv data/raw-data.csv data/input-data.csv
+(base) lucyliu@LucydeMacBook-Air-641 qtm350-quiz01 % mkdir -p scripts/backup && cp scripts/*.py scripts/backup
+(base) lucyliu@LucydeMacBook-Air-641 qtm350-quiz01 % rm docs/documentation.md
+(base) lucyliu@LucydeMacBook-Air-641 qtm350-quiz01 % git add . && git commit -m "Update project files"
+[feature-update c93a6f2] Update project files
+ 9 files changed, 1 deletion(-)
+ rename data/raw-data.csv => commands.txt (100%)
+ create mode 100644 data/input-data.csv
+ delete mode 100644 docs/documentation.md
+ create mode 100644 reports/file1.txt
+ create mode 100644 reports/file2.txt
+ create mode 100644 reports/file3.txt
+ create mode 100644 scripts/backup/01-setup.py
+ create mode 100644 scripts/backup/02-data-cleaning.py
+ create mode 100644 scripts/backup/03-data-modelling.py
+(base) lucyliu@LucydeMacBook-Air-641 qtm350-quiz01 % echo "temp/" > .gitignore
+(base) lucyliu@LucydeMacBook-Air-641 qtm350-quiz01 % echo "dataset0?.csv" > .gitignore
+(base) lucyliu@LucydeMacBook-Air-641 qtm350-quiz01 % cat .gitignore
+dataset0?.csv
+(base) lucyliu@LucydeMacBook-Air-641 qtm350-quiz01 % echo "temp/" >> .gitignore
+(base) lucyliu@LucydeMacBook-Air-641 qtm350-quiz01 % cat .gitignore            
+dataset0?.csv
+temp/
+(base) lucyliu@LucydeMacBook-Air-641 qtm350-quiz01 % echo "temp/" > .gitignore
+(base) lucyliu@LucydeMacBook-Air-641 qtm350-quiz01 % echo "dataset0?.csv" >> .gitignore
+(base) lucyliu@LucydeMacBook-Air-641 qtm350-quiz01 % cat .gitignore
+temp/
+dataset0?.csv
+(base) lucyliu@LucydeMacBook-Air-641 qtm350-quiz01 % git add . && git commit -m "Add .gitignore file"
+[feature-update 61408fa] Add .gitignore file
+ 1 file changed, 2 insertions(+)
+ create mode 100644 .gitignore
+(base) lucyliu@LucydeMacBook-Air-641 qtm350-quiz01 % git checkout main && git merge feature-update
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
+Updating 4ba1160..61408fa
+Fast-forward
+ .gitignore                          | 2 ++
+ data/raw-data.csv => commands.txt   | 0
+ data/input-data.csv                 | 0
+ docs/documentation.md               | 1 -
+ reports/file1.txt                   | 0
+ reports/file2.txt                   | 0
+ reports/file3.txt                   | 0
+ reports/summary.md                  | 1 +
+ scripts/backup/01-setup.py          | 0
+ scripts/backup/02-data-cleaning.py  | 0
+ scripts/backup/03-data-modelling.py | 0
+ 11 files changed, 3 insertions(+), 1 deletion(-)
+ create mode 100644 .gitignore
+ rename data/raw-data.csv => commands.txt (100%)
+ create mode 100644 data/input-data.csv
+ delete mode 100644 docs/documentation.md
+ create mode 100644 reports/file1.txt
+ create mode 100644 reports/file2.txt
+ create mode 100644 reports/file3.txt
+ create mode 100644 reports/summary.md
+ create mode 100644 scripts/backup/01-setup.py
+ create mode 100644 scripts/backup/02-data-cleaning.py
+ create mode 100644 scripts/backup/03-data-modelling.py
