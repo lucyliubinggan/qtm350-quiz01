@@ -19,13 +19,7 @@ Switched to a new branch 'feature-update'
 [feature-update 04ccbb4] Add reports directory
  1 file changed, 1 insertion(+)
  create mode 100644 reports/summary.md
-(base) lucyliu@LucydeMacBook-Air-641 reports % touch reports/file{1..3}.txt
-touch: reports/file1.txt: No such file or directory
-touch: reports/file2.txt: No such file or directory
-touch: reports/file3.txt: No such file or directory
 (base) lucyliu@LucydeMacBook-Air-641 reports % touch file{1..3}.txt
-(base) lucyliu@LucydeMacBook-Air-641 reports % mv data/raw-data.csv data/input-data.csv
-mv: rename data/raw-data.csv to data/input-data.csv: No such file or directory
 (base) lucyliu@LucydeMacBook-Air-641 reports % cd ..
 (base) lucyliu@LucydeMacBook-Air-641 qtm350-quiz01 % mv data/raw-data.csv data/input-data.csv
 (base) lucyliu@LucydeMacBook-Air-641 qtm350-quiz01 % mkdir -p scripts/backup && cp scripts/*.py scripts/backup
@@ -84,6 +78,9 @@ Fast-forward
  create mode 100644 reports/file2.txt
  create mode 100644 reports/file3.txt
  create mode 100644 reports/summary.md
+(base) lucyliu@LucydeMacBook-Air-641 qtm350-quiz01 % git add commands.txt && git commit -m "Add commands"
+(base) lucyliu@LucydeMacBook-Air-641 qtm350-quiz01 % git push origin main
+
  create mode 100644 scripts/backup/01-setup.py
  create mode 100644 scripts/backup/02-data-cleaning.py
  create mode 100644 scripts/backup/03-data-modelling.py
